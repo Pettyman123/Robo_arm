@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -241.4, "left": -472.8, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -124.8,
+      "left": -196.76,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -376.4, "left": -9.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": -242, "left": -9.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo3", "top": -462.8, "left": 19.2, "attrs": {} },
+    { "type": "wokwi-analog-joystick", "id": "joystick1", "top": -87, "left": 15, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -375.2,
+      "left": -134.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -240.8,
+      "left": -134.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -461.6,
+      "left": -134.4,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "bb1:17b.j", "black", [ "v0", "h67.2" ] ],
+    [ "joystick1:GND", "bb1:17b.i", "black", [ "v9.6", "h-230.4" ] ],
+    [ "servo2:GND", "bb1:17b.h", "black", [ "h-38.4", "v182.4" ] ],
+    [ "servo1:GND", "bb1:17b.g", "black", [ "h-19.2", "v115.2", "h28.8", "v76.8" ] ],
+    [ "servo3:GND", "bb1:17b.f", "black", [ "h0" ] ],
+    [ "joystick1:VCC", "bb1:12b.j", "red", [ "v19.2", "h-182.4" ] ],
+    [ "joystick1:VERT", "esp:34", "orange", [ "v28.8", "h-355.2", "v-48" ] ],
+    [ "joystick1:HORZ", "esp:35", "blue", [ "v38.4", "h-374.4", "v-48" ] ],
+    [ "joystick1:SEL", "esp:32", "gray", [ "v48", "h-393.6", "v-38.4" ] ],
+    [ "servo2:V+", "bb1:12b.f", "yellow", [ "h-86.4", "v0.1" ] ],
+    [ "servo1:V+", "bb1:12b.g", "magenta", [ "h0" ] ],
+    [ "servo3:V+", "bb1:12b.h", "green", [ "h-115.2", "v105.7" ] ],
+    [ "esp:12", "servo1:PWM", "green", [ "v0", "h-134.4", "v-96" ] ],
+    [ "esp:13", "servo2:PWM", "green", [ "v0", "h-134.4", "v0" ] ],
+    [ "esp:14", "servo3:PWM", "green", [ "v0", "h-134.4", "v-192" ] ],
+    [ "esp:12", "led1:A", "green", [ "v0", "h-48", "v-144" ] ],
+    [ "led1:C", "bb1:17b.f", "black", [ "h-19.2", "v144" ] ],
+    [ "esp:13", "led2:A", "green", [ "v0", "h-48", "v-9.6" ] ],
+    [ "led2:C", "bb1:17b.f", "black", [ "h-19.2", "v9.6" ] ],
+    [ "esp:14", "led3:A", "green", [ "v0", "h-48", "v-240" ] ],
+    [ "led3:C", "bb1:17b.f", "black", [ "h-19.2", "v240" ] ],
+    [ "bb1:12b.i", "esp:5V", "green", [ "v201.6" ] ]
+  ],
+  "dependencies": {}
+}
